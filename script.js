@@ -9,7 +9,8 @@ const btnRandom = document.getElementById("btnRandom");
 
 function mostrarFotos(data) {
   resultados.innerHTML = ""; 
-  if (!Array.isArray(data)) data = [data]; 
+  if (!Array.isArray(data)) data = [data];
+
   data.forEach(item => {
     const card = document.createElement("div");
     card.className = "card";
@@ -43,10 +44,12 @@ function mostrarError(msg) {
 btnHoy.addEventListener("click", async () => {
   try {
     const res = await fetch(`${URL}?api_key=${API_KEY}`);
+    if (!res.ok) throw new Error("Error al consultar la API");
     const data = await res.json();
     mostrarFotos(data);
   } catch (error) {
     mostrarError("No se pudo obtener la foto del día.");
+    console.error(error);
   }
 });
 
@@ -66,10 +69,12 @@ btnFecha.addEventListener("click", async () => {
 
   try {
     const res = await fetch(`${URL}?api_key=${API_KEY}&date=${fecha}`);
+    if (!res.ok) throw new Error("Error al consultar la API");
     const data = await res.json();
     mostrarFotos(data);
   } catch (error) {
     mostrarError("No se pudo obtener la foto de esa fecha.");
+    console.error(error);
   }
 });
 
@@ -83,9 +88,4 @@ btnRandom.addEventListener("click", async () => {
 
   try {
     const res = await fetch(`${URL}?api_key=${API_KEY}&count=${cantidad}`);
-    const data = await res.json();
-    mostrarFotos(data);
-  } catch (error) {
-    mostrarError("No se pudieron obtener fotos aleatorias.");
-  }
-});
+    if (!res.ok) throw new Error("Error al consultar la API"
