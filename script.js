@@ -1,4 +1,4 @@
-const API_KEY = "DEMO_KEY"; 
+const API_KEY = "kI83SWOY6Bf7Nf9HJdH1CE1Fl6g1m4EsKeU6srDT"; 
 const URL = "https://api.nasa.gov/planetary/apod";
 
 const resultados = document.getElementById("resultados");
