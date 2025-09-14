@@ -1,4 +1,4 @@
-const API_KEY = "DEMO_KEY";
+const API_KEY = "DEMO_KEY"; 
 const URL = "https://api.nasa.gov/planetary/apod";
 
 const resultados = document.getElementById("resultados");
@@ -10,19 +10,30 @@ const btnRandom = document.getElementById("btnRandom");
 function mostrarFotos(data) {
   resultados.innerHTML = ""; 
   if (!Array.isArray(data)) data = [data]; 
-
   data.forEach(item => {
     const card = document.createElement("div");
     card.className = "card";
+
+
+    let media = "";
+    if (item.media_type === "image") {
+      media = `<img src="${item.url}" alt="${item.title || "Imagen sin título"}">`;
+    } else if (item.media_type === "video") {
+      media = `<iframe src="${item.url}" frameborder="0" allowfullscreen></iframe>`;
+    } else {
+      media = `<p>Contenido no disponible.</p>`;
+    }
+
     card.innerHTML = `
-      <h3>${item.title}</h3>
-      <img src="${item.url}" alt="${item.title}">
-      <p>${item.date}</p>
-      <p>${item.explanation}</p>
+      <h3>${item.title || "Sin título disponible"}</h3>
+      ${media}
+      <p><strong>Fecha:</strong> ${item.date || "Desconocida"}</p>
+      <p>${item.explanation || "No hay explicación disponible para esta fecha."}</p>
     `;
     resultados.appendChild(card);
   });
 }
+
 
 function mostrarError(msg) {
   resultados.innerHTML = `<p style="color:red;">⚠️ ${msg}</p>`;
@@ -38,6 +49,7 @@ btnHoy.addEventListener("click", async () => {
     mostrarError("No se pudo obtener la foto del día.");
   }
 });
+
 
 btnFecha.addEventListener("click", async () => {
   const fecha = document.getElementById("fecha").value;
@@ -60,6 +72,7 @@ btnFecha.addEventListener("click", async () => {
     mostrarError("No se pudo obtener la foto de esa fecha.");
   }
 });
+
 
 btnRandom.addEventListener("click", async () => {
   const cantidad = document.getElementById("cantidad").value;
