@@ -15,7 +15,6 @@ function mostrarFotos(data) {
     const card = document.createElement("div");
     card.className = "card";
 
-
     let media = "";
     if (item.media_type === "image") {
       media = `<img src="${item.url}" alt="${item.title || "Imagen sin título"}">`;
@@ -88,4 +87,11 @@ btnRandom.addEventListener("click", async () => {
 
   try {
     const res = await fetch(`${URL}?api_key=${API_KEY}&count=${cantidad}`);
-    if (!res.ok) throw new Error("Error al consultar la API"
+    if (!res.ok) throw new Error("Error al consultar la API");
+    const data = await res.json();
+    mostrarFotos(data);
+  } catch (error) {
+    mostrarError("No se pudieron obtener fotos aleatorias.");
+    console.error(error);
+  }
+});
