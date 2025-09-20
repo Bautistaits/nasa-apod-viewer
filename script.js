@@ -40,3 +40,14 @@ botonCantidad.onclick = function () {
             }
         })
 }
+let fechaUsuario = document.querySelector('#fecha');
+
+fechaUsuario.min = '1995-06-16';
+
+let hoy = new Date();
+let dia = String(hoy.getDate()).padStart(2, '0');
+let mes = String(hoy.getMonth() + 1).padStart(2, '0'); 
+let anio = hoy.getFullYear();
+
+fechaUsuario.max = `${anio}-${mes}-${dia}`;
+
