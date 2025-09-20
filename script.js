@@ -5,7 +5,7 @@ let boton = document.querySelector('#boton');
 let titulo = document.querySelector('h1');
 
 boton.onclick = function () {
-    fetch(https:/api.nasa.gov/planetary/apod?api_key=${key})
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=${key}`)
         .then(fotoDelDia => {
             imagenDelDia.src = fotoDelDia.hdurl;
             titulo.textContent = fotoDelDia.title;
@@ -17,7 +17,7 @@ let botonFecha = document.querySelector('#botonFecha');
 let fechaUsuario = document.querySelector('#fecha');
 
 botonFecha.onclick = function () {
-    fetch(https:/api.nasa.gov/planetary/apod?api_key=${key}&date=${fechaUsuario.value})
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=${key}&date=${fechaUsuario.value}`)
         .then(res => res.json())
         .then(fotoFecha => {
             imagenFecha.src = fotoFecha.hdurl;
@@ -29,7 +29,7 @@ let botonCantidad = document.querySelector('#botonCantidad');
 let cantidadUsuario = document.querySelector('#cantidad');
 
 botonCantidad.onclick = function () {
-    fetch(https:/api.nasa.gov/planetary/apod?api_key=${key}&count=${cantidadUsuario.value})
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=${key}&count=${cantidadUsuario.value}`)
         .then(res => res.json())
         .then(fotos => {
             contenedorImagen.innerHTML = '';
