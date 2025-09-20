@@ -51,9 +51,6 @@ let mes = String(hoy.getMonth() + 1).padStart(2, '0')
 fechaUsuario.max = `${anio}-${mes}-${dia}`
 
 
-let botonFecha = document.querySelector('#botonFecha')
-let imagenFecha = document.querySelector('#imagenFecha')
-
 botonFecha.onclick = function () {
     fetch('https://api.nasa.gov/planetary/apod?api_key=' + key + '&date=' + fechaUsuario.value)
         .then(function(res) { return res.json(); })
