@@ -14,10 +14,10 @@ boton.onclick = function () {
 }
 let imagenFecha = document.querySelector('#imagenFecha')
 let botonFecha = document.querySelector('#botonFecha')
-let fechaUsuari = document.querySelector('#fecha')
+let fechaUsuario = document.querySelector('#fecha')
 
 botonFecha.onclick = function () {
-    fetch(`https://api.nasa.gov/planetary/apod?api_key=${key}&date=${fechaUsuari.value}`)
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=${key}&date=${fechaUsuario.value}`)
         .then(res => res.json())
         .then(fotoFecha => {
             imagenFecha.src = fotoFecha.hdurl
@@ -40,10 +40,8 @@ botonCantidad.onclick = function () {
             }
         })
 }
-let fechaUsuario = document.querySelector('#fecha')
 
-
-fechaUsuario.min = '1995-06-16';
+fechaUsuario.min = '1995-06-16'
 
 
 let hoy = new Date();
