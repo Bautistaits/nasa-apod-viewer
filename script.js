@@ -49,4 +49,4 @@ let dia = String(hoy.getDate()).padStart(2, '0');
 let mes = String(hoy.getMonth() + 1).padStart(2, '0');
 let anio = hoy.getFullYear();
 
-fechaUsuario.max = ${anio}-${mes}-${dia};
+fechaUsuario.max = `${anio}-${mes}-${dia}`;
