@@ -42,13 +42,25 @@ botonCantidad.onclick = function () {
 }
 let fechaUsuario = document.querySelector('#fecha')
 
-fechaUsuario.min = '1995-06-16'
 
-let hoy = new Date()
-let dia = String(hoy.getDate()).padStart(2, '0');
+fechaUsuario.min = '1995-06-16';
+
+
+let hoy = new Date();
+let dia = String(hoy.getDate()).padStart(2, '0')
 let mes = String(hoy.getMonth() + 1).padStart(2, '0')
-let anio = hoy.getFullYear()
 
 fechaUsuario.max = `${anio}-${mes}-${dia}`
 
+
+let botonFecha = document.querySelector('#botonFecha')
+let imagenFecha = document.querySelector('#imagenFecha')
+
+botonFecha.onclick = function () {
+    fetch('https://api.nasa.gov/planetary/apod?api_key=' + key + '&date=' + fechaUsuario.value)
+        .then(function(res) { return res.json(); })
+        .then(function(fotoFecha) {
+            imagenFecha.src = fotoFecha.hdurl;
+        })
+}
 
