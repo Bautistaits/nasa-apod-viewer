@@ -14,10 +14,10 @@ boton.onclick = function () {
 }
 let imagenFecha = document.querySelector('#imagenFecha')
 let botonFecha = document.querySelector('#botonFecha')
-let fechaUsuario = document.querySelector('#fecha')
+let fechaUsuari = document.querySelector('#fecha')
 
 botonFecha.onclick = function () {
-    fetch(`https://api.nasa.gov/planetary/apod?api_key=${key}&date=${fechaUsuario.value}`)
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=${key}&date=${fechaUsuari.value}`)
         .then(res => res.json())
         .then(fotoFecha => {
             imagenFecha.src = fotoFecha.hdurl
