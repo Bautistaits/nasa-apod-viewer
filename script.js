@@ -46,18 +46,17 @@ let botonCantidad = document.querySelector('#botonCantidad');
 let cantidadUsuario = document.querySelector('#cantidad');
 
 botonCantidad.onclick = function () {
-    if (!cantidadUsuario.value || cantidadUsuario.value <= 0) return alert('Ingresa una cantidad válida');
-
-    fetch(`https://api.nasa.gov/planetary/apod?api_key=${key}&count=${cantidadUsuario.value}`)
+    botonCantidad.onclick = function () {
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=${key}&date=${fechaUsuario.value}`)
         .then(res => res.json())
         .then(fotos => {
-            contenedorImagen.innerHTML = ''; 
-            fotos.forEach(foto => {
+            contenedorImagen.innerHTML = '';
+
+            for (let i = 0; i < fotos.length; i++) {
                 contenedorImagen.innerHTML += `
-                    <img src="${foto.url}" alt="${foto.title}">
+                    <img src="${fotos[i].url}" alt="${fotos[i].title}">
                 `;
-            });
-        })
-        .catch(err => console.error('Error al obtener varias imágenes:', err));
+            }
+        });
 };
 
