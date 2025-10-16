@@ -1,3 +1,4 @@
+
 body {
   font-family: Arial, sans-serif;
   background-color: #0d1b2a;
@@ -16,19 +17,19 @@ h1 {
   color: #e0e1dd;
   margin-bottom: 20px;
   text-align: center;
-  font-size: 24px; 
+  font-size: 24px;
 }
 
 
 .caja {
   background-color: #1b263b;
-  border: 2px solid #415a77; 
-  border-radius: 10px; 
+  border: 2px solid #415a77;
+  border-radius: 10px;
   padding: 20px;
   width: 90%;
   max-width: 400px;
   text-align: center;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.3); 
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 
 
@@ -86,9 +87,4 @@ input:focus {
 #resultadoClima p {
   margin: 4px 0;
   font-size: 14px;
-}
-
-
-.contenedor-imagen {
-  margin-bottom: 10px;
 }
