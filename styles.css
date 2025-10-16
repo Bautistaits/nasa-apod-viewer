@@ -1,60 +1,94 @@
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #0d1b2a; 
-      color: #e0e1dd;
-      margin: 0;
-      padding: 20px;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0d1b2a;
+  color: #e0e1dd;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-    .caja {
-      background-color: #1b263b; 
-      border: 2px solid #415a77;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    }
 
-    h1 {
-      color: #e0e1dd;
-      margin-bottom: 15px;
-    }
+h1 {
+  color: #e0e1dd;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px; 
+}
 
-    img {
-      max-width: 20%;
-      height: auto;
-      border-radius: 8px;
-      margin-bottom: 15px;
-    }
 
-    .botones {
-      margin-top: 10px;
-    }
+.caja {
+  background-color: #1b263b;
+  border: 2px solid #415a77; 
+  border-radius: 10px; 
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3); 
+}
 
-    button {
-      background-color: #415a77;
-      color: #e0e1dd;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: background 0.3s;
-    }
 
-    button:hover {
-      background-color: #778da9;
-    }
+label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
 
-  {
-      padding: 8px;
-      border-radius: 5px;
-      border: 1px solid #415a77;
-      margin-right: 10px;
-      font-size: 14px;
-    }
 
-    .contenedor-imagen {
-      margin-bottom: 10px;
-    }
+input[type="text"],
+input[type="date"] {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #415a77;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #2e3d55;
+  color: #fff;
+  font-size: 14px;
+}
+
+
+input:focus {
+  border-color: #76b5ff;
+}
+
+
+#botonClima {
+  padding: 8px 15px;
+  font-size: 14px;
+  border: 1px solid #415a77;
+  border-radius: 5px;
+  background-color: #415a77;
+  color: #e0e1dd;
+  cursor: pointer;
+}
+
+#botonClima:hover {
+  background-color: #778da9;
+}
+
+
+#resultadoClima {
+  margin-top: 15px;
+  color: #d7e1f2;
+}
+
+#resultadoClima h3 {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+#resultadoClima p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+
+.contenedor-imagen {
+  margin-bottom: 10px;
+}
